@@ -1,76 +1,87 @@
-# Instruction Manual for the Tool For Awesome Talk
+# Tool for Awesome Talks
 
-## Creating a New Presentation
-- Duplicate the folder “conference-TAT” and rename it after your presentation.
-- Delete all contents in the “slides” folder.
-- Fill the “slides” folder with your presentation materials, arranged in alphabetical order.
+Tool for Awesome Talks (TAT) is a lightweight, browser-based presentation tool. It builds a presentation from the files in the `slides` folder and displays slide thumbnails beside a large preview.
 
-## Viewing the Presentation
-- Open Terminal.
-- Drag your presentation folder onto the Terminal icon in the Dock. For example, drag the “conference-TAT” folder onto the Terminal icon.
-- A Terminal window will open.
-- Type the command `php -S localhost:8080`.
-- Press Enter.
-- Open your preferred web browser.
-- Enter `localhost:8080` in the address bar.
-- Your presentation should now appear.
+## Requirements
 
-## Adding Media
-- You can place image files (JPG, PNG or GIF) in the “slides” folder. These images will be displayed full-screen in the interface.
-- You can place audio files (WAV or MP3) in the “slides” folder. An audio player will appear.
-- You can place video files (MP4, WebM or OGG) in the “slides” folder. The video will be displayed full-screen and can be viewed in full-screen mode.
-- You can place PDF files in the “slides” folder. The PDF will open in the browser’s PDF viewer.
+- PHP to run the presentation locally.
+- The PHP Zip extension to export the presentation as a ZIP file.
 
-## Writing Text Content / Adding Images / YouTube and Vimeo Videos
-- Open TextEdit or alike
-- Create a new file.
-- Convert it to Plain Text: Format > Make Plain Text.
-- Save text slides with the `.md` extension in the `slides` folder.
-- Write your content as follows (this uses Markdown; documentation is also available here: https://docs.framasoft.org/fr/grav/markdown.html).
+## Getting Started
 
-# Main Heading
-## Medium Heading
-### Fairly Large, Underlined Heading
-#### Large Text
-##### Text
-###### Smaller Text Than the Body Text
+1. Put your presentation files in the repository's `slides` folder.
+2. From the repository root, start PHP's built-in web server:
 
-Regular text  
-Regular text with **bold** and *italic* formatting  
-To insert a line break, type two spaces at the end of the line.  
-- You can also create lists
-- Like this
+   ```sh
+   php -S localhost:8080
+   ```
 
-### Adding a Link:
-- The link itself: http://pouet.net
-- A clickable link with text: [Pouet](http://pouet.net)
+3. Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-### Adding an Image:
-![](slides/images-slides/porte-1-fleche.png)  
-Here, the image file `porte-1-fleche.png` is located in the “images-slides” folder, which is inside the “slides” folder.
+Files directly inside `slides` are shown as slides in alphabetical order by filename. Use numbered prefixes such as `01-introduction.md` and `02-agenda.md` to control the order. Supporting assets can go in subfolders, for example `slides/images-slides/`.
 
-### Adding a YouTube Video
-<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen width=640 height=360 ></iframe>   
-Replace `https://www.youtube.com/embed/tgbNymZ7vqY` with the video’s embed URL.  
-You can also replace only the video ID in the URL.
+## Supported Slides
 
-### Adding a Vimeo Video
-<iframe src="https://player.vimeo.com/video/13416084" width="640" height="360" allowfullscreen></iframe>   
-Replace `https://player.vimeo.com/video/13416084` with the video’s embed URL.  
-You can also replace only the video ID in the URL.
+| File type | Supported formats | Display |
+| --- | --- | --- |
+| Text | `.md` | Rendered as a Markdown slide |
+| Images | `.jpg`, `.png`, `.gif` | Shown as an image slide |
+| Video | `.mp4`, `.webm`, `.ogg` | Shown with browser video controls |
+| Audio | `.mp3`, `.wav` | Shown with browser audio controls |
+| Documents | `.pdf` | Shown in the browser's PDF viewer |
 
-## Adding a Caption to an Image
-- Create a Plain Text file.
-- Name it after the image, adding the `.md` extension. For example, if the image is called `image.jpg`, the caption file should be named `image.jpg.md`. 
-- Write the caption in Markdown in that file.
+## Writing Text Slides
 
-## Exporting the Presentation
-- Click the 📦-icon (export) at the bottom of the thumbnail column.
-- Extract `presentation.zip` and open `index.html` in a browser. The export includes the slides, styles, scripts, theme toggle, and information button and works without PHP.
-- The PHP server needs the Zip extension enabled to create the archive.
+Create a plain-text file with the `.md` extension in `slides`. Markdown headings, paragraphs, links, lists, images, and other standard Markdown formatting are supported.
 
-# Licence
-Tool for Awesome Talks is a project by Sarah Garcin released under [GPL](https://www.gnu.org/licenses/gpl-3.0.html)
+```markdown
+# Main heading
+## Medium heading
+### Smaller heading
 
+Regular text with **bold** and *italic* formatting.
 
- 
+- A list item
+- Another list item
+
+[A link](https://example.com)
+```
+
+For a line break within a paragraph, end the line with two spaces.
+
+### Adding an Image to a Text Slide
+
+Use a path relative to the repository root:
+
+```markdown
+![Description](slides/images-slides/porte-1-fleche.png)
+```
+
+### Embedding YouTube or Vimeo
+
+Paste an embed iframe into the Markdown file. Replace the URL with the video's embed URL.
+
+```html
+<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen width="640" height="360"></iframe>
+```
+
+For Vimeo, use a URL such as `https://player.vimeo.com/video/13416084`. An internet connection is required to load embedded videos.
+
+## Image Captions
+
+Add a Markdown file beside an image and append `.md` to the image's full filename. For example, `image.jpg` can have a caption file named `image.jpg.md`. The Markdown content of that file is displayed as the image caption.
+
+## Presentation Controls
+
+- Select a thumbnail to preview that slide. The first slide is selected when the presentation opens.
+- Use the arrow keys to navigate between slides.
+- Use the theme button to switch between dark and light themes. Your selection is saved in the browser.
+- Use the information button to view project information.
+
+## Exporting
+
+Select the 📦 button at the bottom of the thumbnail sidebar to download `presentation.zip`. Extract the archive and open `index.html` in a browser to view the presentation without running PHP. The archive includes the slides and required styles and scripts. PHP's Zip extension must be enabled to create the export.
+
+## License
+
+Tool for Awesome Talks is a project by [Sarah Garcin](http://sarahgarcin.com/), released under the [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.html) and adapted for additional needs.
