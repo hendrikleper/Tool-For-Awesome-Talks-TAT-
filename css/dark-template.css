@@ -1,0 +1,30 @@
+body {
+	background: #000;
+	color: #FFF;
+}
+
+.row,
+.thumbnail-sidebar {
+	background: #000;
+}
+
+.slide-list>li.text-slide {
+	background: #000;
+	color: #FFF;
+}
+
+.preview.image {
+	background: #000;
+	color: #FFF;
+}
+
+.preview.text-slide {
+	background: #000;
+	color: #FFF;
+	padding: 50px 10% 100px 10%;
+}
+
+.preview.text-slide blockquote {
+  color: #9bb6e4; /* Donkergrijs voor betere leesbaarheid */
+  border-left: 4px solid #b4d1ec; /* Accentkleur (blauw) aan de linkerkant */
+}

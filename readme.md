@@ -1,70 +1,76 @@
-# Tool For Awesome Talks (TAT)
-Un outil web permettant de réaliser facilement un support de présentation pour conférence
+# Instruction Manual for the Tool For Awesome Talk
 
-# Démo
-http://sarahgarcin.com/tat-demo/
+## Creating a New Presentation
+- Duplicate the folder “conference-TAT” and rename it after your presentation.
+- Delete all contents in the “slides” folder.
+- Fill the “slides” folder with your presentation materials, arranged in alphabetical order.
 
-# Screenshot
-![TAT](tat-screenshot.png)
+## Viewing the Presentation
+- Open Terminal.
+- Drag your presentation folder onto the Terminal icon in the Dock. For example, drag the “conference-TAT” folder onto the Terminal icon.
+- A Terminal window will open.
+- Type the command `php -S localhost:8080`.
+- Press Enter.
+- Open your preferred web browser.
+- Enter `localhost:8080` in the address bar.
+- Your presentation should now appear.
 
-# Manuel d’instructions pour le Tool For Awesome Talks
+## Adding Media
+- You can place image files (JPG, PNG or GIF) in the “slides” folder. These images will be displayed full-screen in the interface.
+- You can place audio files (WAV or MP3) in the “slides” folder. An audio player will appear.
+- You can place video files (MP4, WebM or OGG) in the “slides” folder. The video will be displayed full-screen and can be viewed in full-screen mode.
+- You can place PDF files in the “slides” folder. The PDF will open in the browser’s PDF viewer.
 
-## Créer une nouvelle conférence
-- Dupliquer le dossier “conference-TAT”, le renommer avec le nom de la conférence
-- Supprimer tous les contenus dans le dossier “images”
-- Remplir le dossier “images” avec les contenus de la conférence rangés dans l’ordre alphabétique
+## Writing Text Content / Adding Images / YouTube and Vimeo Videos
+- Open TextEdit or alike
+- Create a new file.
+- Convert it to Plain Text: Format > Make Plain Text.
+- Save text slides with the `.md` extension in the `slides` folder.
+- Write your content as follows (this uses Markdown; documentation is also available here: https://docs.framasoft.org/fr/grav/markdown.html).
 
-## Ajouter des médias
-- Vous pouvez mettre des fichiers image (jpg, png ou gif) dans le dossier “images”, ces images s’afficheront en pleine page dans l’interface
-- Vous pouvez mettre des fichiers son (wav ou mp3) dans le dossier “images”, un lecteur audio s’affichera
-- Vous pouvez mettre des fichiers vidéo (mp4, webm ou ogg) dans le dossier “images”, la vidéo s’affichera en pleine page et il sera possible de la mettre en plein écran
-- Vous pouvez mettre des fichiers PDF dans le dossier “images”, le pdf s’affichera dans le visualisateur PDF du navigateur
+# Main Heading
+## Medium Heading
+### Fairly Large, Underlined Heading
+#### Large Text
+##### Text
+###### Smaller Text Than the Body Text
 
+Regular text  
+Regular text with **bold** and *italic* formatting  
+To insert a line break, type two spaces at the end of the line.  
+- You can also create lists
+- Like this
 
-## Écrire des contenus texte / images / vidéos youtube et vimeo
-- Ouvrir TextEdit
-- Créer un nouveau fichier
-- Le transformer en Plain Text (Texte plein): Format > Texte Plein 
-- Écrire ses contenus comme suit (c’est du markdown la documentation est aussi là: https://docs.framasoft.org/fr/grav/markdown.html)
+### Adding a Link:
+- The link itself: http://pouet.net
+- A clickable link with text: [Pouet](http://pouet.net)
 
-# Grand titre
-## Moyen titre
-### titre assez grand souligné
-##### du gros texte
-###### du texte plus petit que le texte courant
+### Adding an Image:
+![](slides/images-slides/porte-1-fleche.png)  
+Here, the image file `porte-1-fleche.png` is located in the “images-slides” folder, which is inside the “slides” folder.
 
-du texte courant  
-du texte courant avec du **bold** et de l’*italique*  
-pour marquer un saut de ligne il faut taper un double espace à la fin de la ligne  
-- aussi on peut faire des listes
-- comme ça  
-
-### pour mettre un lien:
-- le lien directement: http://pouet.net
-- le lien avec un texte sur lequel cliquer: [Pouet](http://pouet.net) 
-
-### mettre une image: 
-![](images/images-slides/porte-1-fleche.png)  
-Ici l’image porte-1-fleche.png est placé dans le dossier “images-slides” qui se trouvent dans le dossier “images”
-
-### ajouter une vidéo youtube
+### Adding a YouTube Video
 <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen width=640 height=360 ></iframe>   
-mettre le lien embed de la video à la place de https://www.youtube.com/embed/tgbNymZ7vqY   
-il est aussi possible de remplacer seulement l’identidiant de la vidéo dans l’url
+Replace `https://www.youtube.com/embed/tgbNymZ7vqY` with the video’s embed URL.  
+You can also replace only the video ID in the URL.
 
-### ajouter une vidéo viméo
+### Adding a Vimeo Video
 <iframe src="https://player.vimeo.com/video/13416084" width="640" height="360" allowfullscreen></iframe>   
-mettre le lien embed de la video à la place de https://player.vimeo.com/video/13416084
-il est aussi possible de remplacer seulement l’identidiant de la vidéo dans l’url
+Replace `https://player.vimeo.com/video/13416084` with the video’s embed URL.  
+You can also replace only the video ID in the URL.
 
-## Ajouter une légende à une image
-- Créer un fichier Plain Text
-- Le nommer comme l’image avec l’extension .txt, exemple l’image s’appelle image.jpg, le fichier de légende devra s’appeler image.jpg.txt
-- Écrire la légende en markdown dans le fichier
+## Adding a Caption to an Image
+- Create a Plain Text file.
+- Name it after the image, adding the `.md` extension. For example, if the image is called `image.jpg`, the caption file should be named `image.jpg.md`. 
+- Write the caption in Markdown in that file.
 
+## Exporting the Presentation
+- Click the 📦-icon (export) at the bottom of the thumbnail column.
+- Extract `presentation.zip` and open `index.html` in a browser. The export includes the slides, styles, scripts, theme toggle, and information button and works without PHP.
+- The PHP server needs the Zip extension enabled to create the archive.
 
 # Licence
-[GPL](https://www.gnu.org/licenses/gpl-3.0.html)
+Tool for Awesome Talks is a project by Sarah Garcin released under [GPL](https://www.gnu.org/licenses/gpl-3.0.html)
 
 
  
